@@ -8,7 +8,7 @@ content:
   - name: aktualnosci
     label: Aktualności
     type: collection
-    path: path: _aktualnosci
+    path: _aktualnosci
     format: yaml-frontmatter
     fields:
       - name: title
