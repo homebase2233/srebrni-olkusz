@@ -1,0 +1,14 @@
+
+title: Akademia Piłkarska Srebrni Olkusz
+description: Chodź na boisko, internet to nie wszystko!
+
+lang: pl
+url: "https://homebase2233.github.io"
+baseurl: "/srebrni-olkusz"
+
+markdown: kramdown
+
+collections:
+  aktualnosci:
+    output: true
+    permalink: /aktualnosci/:name/
