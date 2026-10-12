@@ -92,7 +92,48 @@ layout: null
     </div>
   </section>
 
-  <section class="section section-dark" id="aktualnosci">
+  
+<section class="section section-dark" id="aktualnosci">
+  <div class="container">
+    <p class="eyebrow">CO U NAS SŁYCHAĆ?</p>
+    <h2>AKTUALNOŚCI KLUBOWE</h2>
+    <div class="red-line"></div>
+
+    <div class="cards">
+      {% assign wpisy = site.aktualnosci | sort: "date" | reverse %}
+      {% for wpis in wpisy limit:6 %}
+      <article class="card news-card">
+
+        {% if wpis.image %}
+        <img
+          src="{{ wpis.image | relative_url }}"
+          alt="{{ wpis.title | escape }}"
+          class="news-image"
+          loading="lazy">
+        {% endif %}
+
+        <div class="news-content">
+          <p class="news-date">
+            {{ wpis.date | date: "%d.%m.%Y" }}
+          </p>
+
+          <h3>{{ wpis.title | escape }}</h3>
+
+          <p>{{ wpis.description | escape }}</p>
+
+          <a href="{{ wpis.url | relative_url }}" class="news-link">
+            CZYTAJ WIĘCEJ
+          </a>
+        </div>
+
+      </article>
+      {% else %}
+      <p>Wkrótce pojawią się aktualności akademii.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
     <div class="container">
       <p class="eyebrow">CO U NAS SŁYCHAĆ?</p>
       <h2>AKTUALNOŚCI</h2>
