@@ -393,3 +393,53 @@ footer small {
   }
 }
 
+/* AKTUALNOŚCI KLUBOWE */
+
+.news-card {
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+.news-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #eeeeee;
+}
+
+.news-content {
+  padding: 24px;
+}
+
+.news-date {
+  color: #d71920 !important;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.news-content h3 {
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.news-content p {
+  line-height: 1.7;
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #d71920;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.news-link:hover {
+  background: #aa141a;
+}
+
