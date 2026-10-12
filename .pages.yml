@@ -1,1 +1,33 @@
 
+
+media:
+  input: media
+  output: /srebrni-olkusz/media
+
+content:
+  - name: aktualnosci
+    label: Aktualności
+    type: collection
+    path: content/aktualnosci
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Tytuł aktualności
+        type: string
+        required: true
+
+      - name: date
+        label: Data publikacji
+        type: date
+
+      - name: image
+        label: Zdjęcie główne
+        type: image
+
+      - name: description
+        label: Krótki opis
+        type: text
+
+      - name: body
+        label: Treść aktualności
+        type: rich-text
