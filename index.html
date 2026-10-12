@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Akademia Piłkarska Srebrni Olkusz. Chodź na boisko, internet to nie wszystko!">
+  <title>AP Srebrni Olkusz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="#start" class="logo">
+    <img src="images/herb.png" alt="Herb AP Srebrni Olkusz">
+    <span>AP SREBRNI OLKUSZ</span>
+  </a>
+
+  <button class="menu-toggle" aria-label="Otwórz menu" aria-expanded="false">☰</button>
+
+  <nav class="nav" id="nav">
+    <a href="#start">Start</a>
+    <a href="#akademia">O akademii</a>
+    <a href="#druzyny">Drużyny</a>
+    <a href="#treningi">Treningi</a>
+    <a href="#aktualnosci">Aktualności</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="start">
+    <div class="hero-content">
+      <img class="hero-logo" src="images/herb.png" alt="AP Srebrni Olkusz">
+      <h1>AKADEMIA PIŁKARSKA<br>SREBRNI OLKUSZ</h1>
+      <p class="slogan">CHODŹ NA BOISKO,<br>INTERNET TO NIE WSZYSTKO!</p>
+      <div class="buttons">
+        <a href="#kontakt" class="btn">DOŁĄCZ DO NAS</a>
+        <a href="#aktualnosci" class="btn btn-outline">AKTUALNOŚCI</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="akademia">
+    <div class="container">
+      <p class="eyebrow">POZNAJ NAS</p>
+      <h2>O NASZEJ AKADEMII</h2>
+      <div class="red-line"></div>
+      <p class="intro">
+        Akademia Piłkarska Srebrni Olkusz to miejsce,
+        w którym dzieci rozwijają swoje umiejętności
+        piłkarskie, uczą się współpracy i czerpią
+        radość z aktywności fizycznej.
+      </p>
+      <p class="intro">
+        Stawiamy na regularny trening, dobrą atmosferę
+        i wszechstronny rozwój młodych zawodników.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="druzyny">
+    <div class="container">
+      <p class="eyebrow">MŁODZI ZAWODNICY</p>
+      <h2>NASZE DRUŻYNY</h2>
+      <div class="red-line"></div>
+      <div class="cards">
+        <article class="card"><h3>ROCZNIK 2020</h3><p>Najmłodsi piłkarze</p></article>
+        <article class="card"><h3>ROCZNIK 2019</h3><p>Trening i zabawa</p></article>
+        <article class="card"><h3>ROCZNIK 2018</h3><p>Rozwój umiejętności</p></article>
+        <article class="card"><h3>ROCZNIK 2017</h3><p>Piłkarska przygoda</p></article>
+        <article class="card"><h3>ROCZNIK 2016</h3><p>Trening i rywalizacja</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="treningi">
+    <div class="container">
+      <p class="eyebrow">SPOTKAJMY SIĘ NA BOISKU</p>
+      <h2>HARMONOGRAM TRENINGÓW</h2>
+      <div class="red-line"></div>
+      <p class="intro">
+        Szczegółowy harmonogram poszczególnych grup
+        treningowych zostanie tutaj opublikowany.
+      </p>
+      <a href="#kontakt" class="btn">ZAPYTAJ O TRENING</a>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="aktualnosci">
+    <div class="container">
+      <p class="eyebrow">CO U NAS SŁYCHAĆ?</p>
+      <h2>AKTUALNOŚCI</h2>
+      <div class="red-line"></div>
+      <div class="cards">
+        <article class="card">
+          <h3>WEEKENDOWE GRANIE</h3>
+          <p>Relacje z meczów i turniejów naszych drużyn.</p>
+        </article>
+        <article class="card">
+          <h3>TURNIEJ SREBRNEGO MIASTA</h3>
+          <p>Wydarzenia piłkarskie organizowane w Olkuszu.</p>
+        </article>
+        <article class="card">
+          <h3>ŻYCIE AKADEMII</h3>
+          <p>Treningi, wydarzenia i osiągnięcia zawodników.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="galeria">
+    <div class="container">
+      <p class="eyebrow">NASZE WSPOMNIENIA</p>
+      <h2>GALERIA</h2>
+      <div class="red-line"></div>
+      <div class="gallery">
+        <img src="images/boisko.jpg" alt="Obiekt sportowy w Olkuszu">
+        <div class="gallery-placeholder">Tutaj dodamy zdjęcia z treningów</div>
+        <div class="gallery-placeholder">Tutaj dodamy zdjęcia z turniejów</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="kontakt">
+    <div class="container">
+      <p class="eyebrow">ZAPRASZAMY NA TRENING</p>
+      <h2>DOŁĄCZ DO SREBRNYCH!</h2>
+      <div class="red-line"></div>
+      <p>Chcesz rozpocząć piłkarską przygodę?</p>
+      <p>Skontaktuj się z akademią i zapytaj o nabór.</p>
+      <p>Dane kontaktowe i formularz dodamy w kolejnym etapie.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="images/herb.png" alt="Srebrni Olkusz">
+  <p>AKADEMIA PIŁKARSKA SREBRNI OLKUSZ</p>
+  <small>© <span id="year"></span> AP Srebrni Olkusz</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
