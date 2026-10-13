@@ -709,3 +709,60 @@ footer small {
   }
 }
 
+/* POPRAWIONA KADRA TRENERSKA */
+
+#trenerzy .coach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+#trenerzy .coach-card {
+  width: 100%;
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-top: 5px solid #d71920;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,.09);
+  text-align: left;
+}
+
+#trenerzy .coach-placeholder {
+  height: 220px;
+  background: #f2f2f2;
+  color: #777777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#trenerzy .coach-content {
+  padding: 25px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+#trenerzy .coach-content h3 {
+  color: #191919;
+  font-size: 22px;
+}
+
+#trenerzy .coach-content .btn {
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  #trenerzy .coach-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #trenerzy .coach-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
