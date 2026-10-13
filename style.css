@@ -481,3 +481,42 @@ footer small {
   }
 }
 
+/* GALERIA ALBUMÓW */
+
+.album-card {
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+.album-cover {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  background: #eeeeee;
+}
+
+.album-content {
+  padding: 25px;
+}
+
+.album-date {
+  color: #d71920 !important;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.album-content h3 {
+  font-size: 21px;
+  margin: 12px 0;
+}
+
+.album-content p {
+  line-height: 1.7;
+}
+
+.album-content .btn {
+  margin-top: 15px;
+}
+
