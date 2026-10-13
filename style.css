@@ -633,3 +633,79 @@ footer small {
   }
 }
 
+/* KADRA TRENERSKA */
+
+.coach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.coach-card {
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.coach-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.coach-placeholder {
+  height: 280px;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  font-weight: bold;
+}
+
+.coach-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.coach-content h3 {
+  font-size: 23px;
+  margin: 0 0 10px;
+  color: #191919;
+}
+
+.coach-role {
+  color: #d71920 !important;
+  font-weight: bold;
+}
+
+.coach-content p {
+  line-height: 1.6;
+}
+
+.coach-content .btn {
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .coach-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .coach-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
