@@ -19,9 +19,17 @@ collections:
     permalink: /galeria/:name/
 
 
+
 defaults:
   - scope:
       path: ""
       type: aktualnosci
     values:
       layout: aktualnosc
+
+  - scope:
+      path: ""
+      type: galerie
+    values:
+      layout: galeria
+
