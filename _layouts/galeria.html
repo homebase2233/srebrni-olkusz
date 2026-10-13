@@ -98,6 +98,30 @@
       .photo-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
       .photo-grid img { height: 130px; }
     }
+    
+.photo-tools {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.download-photo {
+  color: white;
+  background: #d71920;
+  padding: 11px 18px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
   </style>
 </head>
 <body>
@@ -140,6 +164,14 @@
   <button class="close-photo" id="closePhoto" aria-label="Zamknij">×</button>
   <button class="prev-photo" id="prevPhoto" aria-label="Poprzednie zdjęcie">‹</button>
   <img id="largePhoto" alt="Powiększone zdjęcie">
+  
+<div class="photo-tools">
+  <span id="photoCounter" aria-live="polite"></span>
+  <a id="downloadPhoto" class="download-photo" href="#" download>
+    POBIERZ ZDJĘCIE
+  </a>
+</div>
+
   <button class="next-photo" id="nextPhoto" aria-label="Następne zdjęcie">›</button>
 </div>
 
@@ -156,6 +188,13 @@
     current = (index + photos.length) % photos.length;
     largePhoto.src = photos[current].src;
     largePhoto.alt = photos[current].alt;
+    
+document.getElementById("photoCounter").textContent =
+  `${current + 1} z ${photos.length}`;
+
+document.getElementById("downloadPhoto").href =
+  photos[current].src;
+
     lightbox.classList.add("open");
     document.body.style.overflow = "hidden";
   }
