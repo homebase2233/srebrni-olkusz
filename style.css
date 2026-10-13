@@ -443,3 +443,41 @@ footer small {
   background: #aa141a;
 }
 
+/* WYRÓWNANIE AKTUALNOŚCI */
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.news-image {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background: #f5f5f5;
+  padding: 15px;
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 25px;
+}
+
+.news-content h3 {
+  margin: 15px 0;
+}
+
+.news-link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .news-image {
+    height: 220px;
+  }
+}
+
