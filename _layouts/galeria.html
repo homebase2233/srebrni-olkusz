@@ -223,6 +223,26 @@ document.getElementById("downloadPhoto").href =
     if (event.key === "ArrowLeft") showPhoto(current - 1);
     if (event.key === "ArrowRight") showPhoto(current + 1);
   });
+  
+let touchStartX = 0;
+
+lightbox.addEventListener("touchstart", (event) => {
+  touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
+
+lightbox.addEventListener("touchend", (event) => {
+  const touchEndX = event.changedTouches[0].screenX;
+  const distance = touchEndX - touchStartX;
+
+  if (Math.abs(distance) < 50) return;
+
+  if (distance < 0) {
+    showPhoto(current + 1);
+  } else {
+    showPhoto(current - 1);
+  }
+}, { passive: true });
+
 </script>
 
 </body>
