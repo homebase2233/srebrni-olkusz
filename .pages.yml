@@ -95,3 +95,34 @@ content:
         label: Opis drużyny
         type: rich-text
 
+  - name: trenerzy
+    label: Kadra trenerska
+    type: collection
+    path: _trenerzy
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Imię i nazwisko
+        type: string
+        required: true
+
+      - name: image
+        label: Zdjęcie trenera
+        type: image
+
+      - name: licencja
+        label: Licencja trenerska
+        type: string
+
+      - name: roczniki
+        label: Prowadzone roczniki
+        type: string
+
+      - name: funkcja
+        label: Funkcja w akademii
+        type: string
+
+      - name: opis
+        label: Doświadczenie i opis
+        type: rich-text
+
