@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }} | AP Srebrni Olkusz</title>
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+
+  <style>
+    .trainer-page {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+      color: #222;
+    }
+
+    .trainer-page h1 {
+      color: #191919;
+      text-shadow: none;
+      font-size: clamp(30px, 5vw, 46px);
+    }
+
+    .trainer-profile {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 40px;
+      margin: 35px 0;
+      align-items: start;
+    }
+
+    .trainer-photo {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .trainer-placeholder {
+      min-height: 300px;
+      background: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      border-radius: 8px;
+    }
+
+    .trainer-info {
+      background: #f1f2f4;
+      border-top: 5px solid #d71920;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .trainer-info h2 {
+      font-size: 25px;
+      margin-top: 0;
+    }
+
+    .trainer-info p {
+      line-height: 1.8;
+    }
+
+    .trainer-description {
+      line-height: 1.9;
+      font-size: 17px;
+    }
+
+    @media (max-width: 700px) {
+      .trainer-profile {
+        grid-template-columns: 1fr;
+      }
+
+      .trainer-photo {
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <a href="{{ '/' | relative_url }}" class="logo">
+    <img src="{{ '/herb.png' | relative_url }}"
+         alt="Herb AP Srebrni Olkusz">
+    <span>AP SREBRNI OLKUSZ</span>
+  </a>
+
+  <nav class="nav" style="display:flex">
+    <a href="{{ '/' | relative_url }}">Strona główna</a>
+    <a href="{{ '/#trenerzy' | relative_url }}">Kadra trenerska</a>
+  </nav>
+</header>
+
+<main class="trainer-page">
+  <p class="eyebrow">KADRA TRENERSKA</p>
+  <h1>{{ page.title | escape }}</h1>
+
+  <div class="trainer-profile">
+    <div>
+      {% if page.image %}
+      <img class="trainer-photo"
+           src="{{ page.image }}"
+           alt="{{ page.title | escape }}">
+      {% else %}
+      <div class="trainer-placeholder">
+        AP SREBRNI OLKUSZ
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="trainer-info">
+      <h2>{{ page.funkcja | default: "Trener" | escape }}</h2>
+
+      {% if page.licencja %}
+      <p><strong>Licencja:</strong>
+        {{ page.licencja | escape }}
+      </p>
+      {% endif %}
+
+      {% if page.roczniki %}
+      <p><strong>Prowadzone roczniki:</strong>
+        {{ page.roczniki | escape }}
+      </p>
+      {% endif %}
+
+      <h2>Doświadczenie</h2>
+      <div class="trainer-description">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+
+  <a href="{{ '/#trenerzy' | relative_url }}" class="btn">
+    POWRÓT DO KADRY
+  </a>
+</main>
+
+<footer>
+  <p>AKADEMIA PIŁKARSKA SREBRNI OLKUSZ</p>
+</footer>
+
+</body>
+</html>
