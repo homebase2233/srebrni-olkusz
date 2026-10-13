@@ -23,7 +23,9 @@ collections:
     output: true
     permalink: /druzyny/:name/
 
-
+  trenerzy:
+    output: true
+    permalink: /trenerzy/:name/
 
 
 defaults:
