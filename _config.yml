@@ -35,6 +35,12 @@ defaults:
 
   - scope:
       path: ""
+      type: druzyny
+    values:
+      layout: druzyna
+
+  - scope:
+      path: ""
       type: galerie
     values:
       layout: galeria
