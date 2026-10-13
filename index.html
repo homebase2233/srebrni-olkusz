@@ -153,18 +153,47 @@ layout: null
     </div>
   </section>
 
-  <section class="section" id="galeria">
-    <div class="container">
-      <p class="eyebrow">NASZE WSPOMNIENIA</p>
-      <h2>GALERIA</h2>
-      <div class="red-line"></div>
-      <div class="gallery">
-        <img src="images/boisko.jpg" alt="Obiekt sportowy w Olkuszu">
-        <div class="gallery-placeholder">Tutaj dodamy zdjęcia z treningów</div>
-        <div class="gallery-placeholder">Tutaj dodamy zdjęcia z turniejów</div>
-      </div>
+  
+<section class="section" id="galeria">
+  <div class="container">
+    <p class="eyebrow">NASZE WSPOMNIENIA</p>
+    <h2>GALERIA ZDJĘĆ</h2>
+    <div class="red-line"></div>
+
+    <div class="cards">
+      {% assign albumy = site.galerie | sort: "date" | reverse %}
+      {% for album in albumy %}
+      <article class="card album-card">
+
+        {% if album.cover %}
+        <img
+          class="album-cover"
+          src="{{ album.cover }}"
+          alt="{{ album.title | escape }}"
+          loading="lazy">
+        {% endif %}
+
+        <div class="album-content">
+          <p class="album-date">
+            {{ album.date | date: "%d.%m.%Y" }}
+          </p>
+
+          <h3>{{ album.title | escape }}</h3>
+
+          <p>{{ album.description | escape }}</p>
+
+          <a class="btn" href="{{ album.url | relative_url }}">
+            ZOBACZ GALERIĘ
+          </a>
+        </div>
+      </article>
+      {% else %}
+      <p>Wkrótce pojawią się galerie zdjęć.</p>
+      {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section class="section contact" id="kontakt">
     <div class="container">
