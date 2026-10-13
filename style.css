@@ -562,3 +562,43 @@ footer small {
   }
 }
 
+/* DRUŻYNY AP SREBRNI OLKUSZ */
+
+.team-card {
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #eeeeee;
+}
+
+.team-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.team-content h3 {
+  color: #d71920;
+  font-size: 23px;
+}
+
+.team-content p {
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.team-content .btn {
+  margin-top: auto;
+}
+
