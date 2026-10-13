@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }} | AP Srebrni Olkusz</title>
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+  <style>
+    .article-page {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      color: #222;
+    }
+
+    .article-page h1 {
+      color: #181818;
+      font-size: clamp(30px, 5vw, 48px);
+      text-shadow: none;
+    }
+
+    .article-date {
+      color: #d71920;
+      font-weight: bold;
+    }
+
+    .article-image {
+      width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      margin: 30px 0;
+      border-radius: 8px;
+    }
+
+    .article-body {
+      font-size: 18px;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    .article-back {
+      display: inline-block;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <a class="logo" href="{{ '/' | relative_url }}">
+    <img src="{{ '/herb.png' | relative_url }}" alt="Herb Srebrni Olkusz">
+    <span>AP SREBRNI OLKUSZ</span>
+  </a>
+  <nav class="nav" style="display:flex">
+    <a href="{{ '/' | relative_url }}">Strona główna</a>
+    <a href="{{ '/#aktualnosci' | relative_url }}">Aktualności</a>
+  </nav>
+</header>
+
+<main class="article-page">
+  <p class="article-date">
+    {{ page.date | date: "%d.%m.%Y" }}
+  </p>
+
+  <h1>{{ page.title | escape }}</h1>
+
+  {% if page.image %}
+    <img class="article-image"
+         src="{{ page.image }}"
+         alt="{{ page.title | escape }}">
+  {% endif %}
+
+  <div class="article-body">
+    {{ content }}
+  </div>
+
+  <a class="btn article-back"
+     href="{{ '/#aktualnosci' | relative_url }}">
+    POWRÓT DO AKTUALNOŚCI
+  </a>
+</main>
+
+<footer>
+  <p>AKADEMIA PIŁKARSKA SREBRNI OLKUSZ</p>
+</footer>
+
+</body>
+</html>
