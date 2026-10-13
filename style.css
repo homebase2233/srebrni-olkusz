@@ -520,3 +520,45 @@ footer small {
   margin-top: 15px;
 }
 
+/* GALERIA ZDJĘĆ */
+
+#galeria .cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+#galeria .album-card {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+#galeria .album-cover {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  padding: 0;
+}
+
+#galeria .album-content {
+  padding: 22px;
+}
+
+@media (max-width: 900px) {
+  #galeria .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #galeria .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
