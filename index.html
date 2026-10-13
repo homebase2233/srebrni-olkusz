@@ -105,6 +105,62 @@ layout: null
   </div>
 </section>
 
+<section class="section" id="trenerzy">
+  <div class="container">
+    <p class="eyebrow">POZNAJ NASZ ZESPÓŁ</p>
+    <h2>KADRA TRENERSKA</h2>
+    <div class="red-line"></div>
+
+    <div class="coach-grid">
+      {% assign trenerzy = site.trenerzy | sort: "title" %}
+      {% for trener in trenerzy %}
+      <article class="coach-card">
+
+        {% if trener.image %}
+        <img
+          src="{{ trener.image }}"
+          alt="{{ trener.title | escape }}"
+          class="coach-photo"
+          loading="lazy">
+        {% else %}
+        <div class="coach-placeholder">
+          AP SREBRNI OLKUSZ
+        </div>
+        {% endif %}
+
+        <div class="coach-content">
+          <h3>{{ trener.title | escape }}</h3>
+
+          {% if trener.funkcja %}
+          <p class="coach-role">
+            {{ trener.funkcja | escape }}
+          </p>
+          {% endif %}
+
+          {% if trener.licencja %}
+          <p><strong>Licencja:</strong>
+            {{ trener.licencja | escape }}
+          </p>
+          {% endif %}
+
+          {% if trener.roczniki %}
+          <p><strong>Roczniki:</strong>
+            {{ trener.roczniki | escape }}
+          </p>
+          {% endif %}
+
+          <a href="{{ trener.url | relative_url }}" class="btn">
+            POZNAJ TRENERA
+          </a>
+        </div>
+      </article>
+      {% else %}
+      <p>Informacje o kadrze trenerskiej pojawią się wkrótce.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 
   <section class="section" id="treningi">
     <div class="container">
