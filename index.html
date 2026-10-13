@@ -62,20 +62,49 @@ layout: null
     </div>
   </section>
 
-  <section class="section section-dark" id="druzyny">
-    <div class="container">
-      <p class="eyebrow">MŁODZI ZAWODNICY</p>
-      <h2>NASZE DRUŻYNY</h2>
-      <div class="red-line"></div>
-      <div class="cards">
-        <article class="card"><h3>ROCZNIK 2020</h3><p>Najmłodsi piłkarze</p></article>
-        <article class="card"><h3>ROCZNIK 2019</h3><p>Trening i zabawa</p></article>
-        <article class="card"><h3>ROCZNIK 2018</h3><p>Rozwój umiejętności</p></article>
-        <article class="card"><h3>ROCZNIK 2017</h3><p>Piłkarska przygoda</p></article>
-        <article class="card"><h3>ROCZNIK 2016</h3><p>Trening i rywalizacja</p></article>
-      </div>
+  
+<section class="section section-dark" id="druzyny">
+  <div class="container">
+    <p class="eyebrow">MŁODZI ZAWODNICY</p>
+    <h2>NASZE DRUŻYNY</h2>
+    <div class="red-line"></div>
+
+    <div class="cards">
+      {% assign druzyny = site.druzyny | sort: "rocznik" | reverse %}
+      {% for druzyna in druzyny %}
+      <article class="card team-card">
+
+        {% if druzyna.image %}
+        <img
+          src="{{ druzyna.image }}"
+          alt="{{ druzyna.title | escape }}"
+          class="team-image"
+          loading="lazy">
+        {% endif %}
+
+        <div class="team-content">
+          <h3>{{ druzyna.title | escape }}</h3>
+
+          {% if druzyna.trener %}
+          <p><strong>Trener:</strong> {{ druzyna.trener | escape }}</p>
+          {% endif %}
+
+          {% if druzyna.treningi %}
+          <p><strong>Treningi:</strong> {{ druzyna.treningi | escape | newline_to_br }}</p>
+          {% endif %}
+
+          <a href="{{ druzyna.url | relative_url }}" class="btn">
+            ZOBACZ DRUŻYNĘ
+          </a>
+        </div>
+      </article>
+      {% else %}
+      <p>Informacje o drużynach pojawią się wkrótce.</p>
+      {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section class="section" id="treningi">
     <div class="container">
