@@ -28,6 +28,7 @@ collections:
     permalink: /trenerzy/:name/
 
 
+
 defaults:
   - scope:
       path: ""
@@ -37,13 +38,18 @@ defaults:
 
   - scope:
       path: ""
+      type: galerie
+    values:
+      layout: galeria
+
+  - scope:
+      path: ""
       type: druzyny
     values:
       layout: druzyna
 
   - scope:
       path: ""
-      type: galerie
+      type: trenerzy
     values:
-      layout: galeria
-
+      layout: trener
