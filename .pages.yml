@@ -60,3 +60,38 @@ content:
         type: image
         list: true
 
+  - name: druzyny
+    label: Drużyny i trenerzy
+    type: collection
+    path: _druzyny
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Nazwa drużyny
+        type: string
+        required: true
+
+      - name: rocznik
+        label: Rocznik
+        type: number
+
+      - name: image
+        label: Zdjęcie drużyny
+        type: image
+
+      - name: trener
+        label: Imię i nazwisko trenera
+        type: string
+
+      - name: trener_zdjecie
+        label: Zdjęcie trenera
+        type: image
+
+      - name: treningi
+        label: Harmonogram treningów
+        type: text
+
+      - name: opis
+        label: Opis drużyny
+        type: rich-text
+
