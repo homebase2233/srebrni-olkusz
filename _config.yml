@@ -8,10 +8,16 @@ baseurl: "/srebrni-olkusz"
 
 markdown: kramdown
 
+
 collections:
   aktualnosci:
     output: true
     permalink: /aktualnosci/:name/
+
+  galerie:
+    output: true
+    permalink: /galeria/:name/
+
 
 defaults:
   - scope:
