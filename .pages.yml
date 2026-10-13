@@ -31,3 +31,32 @@ content:
       - name: body
         label: Treść aktualności
         type: rich-text
+        
+  - name: galerie
+    label: Galerie zdjęć
+    type: collection
+    path: _galerie
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Nazwa albumu
+        type: string
+        required: true
+
+      - name: date
+        label: Data wydarzenia
+        type: date
+
+      - name: cover
+        label: Zdjęcie główne albumu
+        type: image
+
+      - name: description
+        label: Opis albumu
+        type: text
+
+      - name: photos
+        label: Zdjęcia w albumie
+        type: image
+        list: true
+
