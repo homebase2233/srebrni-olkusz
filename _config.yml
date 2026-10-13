@@ -12,3 +12,10 @@ collections:
   aktualnosci:
     output: true
     permalink: /aktualnosci/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: aktualnosci
+    values:
+      layout: aktualnosc
