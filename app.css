@@ -80,3 +80,7 @@ body{background:#f5f5f3;color:#17181b}
 .benefit p{font-size:10px;line-height:1.5;margin:0;color:#696b70}
 @media(max-width:760px){.hero{grid-template-columns:1fr;gap:24px;padding:34px 25px 62px}.hero-art{height:230px}.hero h1{font-size:64px}.hero-foot{padding:0 14px}.benefits{grid-template-columns:1fr}.benefit{padding:15px 18px}.benefit+.benefit{border-left:0;border-top:1px solid #e1e2df}}
 @media(max-width:370px){.hero h1{font-size:56px}.hero-actions{gap:14px}.hero-secondary{font-size:11px}}
+
+.hero h1{font-size:clamp(54px,6vw,72px);line-height:.98}
+@media(max-width:760px){.hero h1{font-size:clamp(44px,11vw,58px)}}
+

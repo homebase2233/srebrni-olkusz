@@ -10,7 +10,7 @@ Lekka, responsywna aplikacja internetowa, którą można dodać do ekranu głów
 - informacje o akademii, kontakt oraz zapowiedź „Mojej Karty Piłkarza”;
 - instalację PWA i podstawowe działanie offline po pierwszej wizycie.
 
-Aktualności i terminy są celowo puste. Wpisuj potwierdzone przez akademię informacje w `content.js`. Nie publikuj danych osobowych dzieci ani ich zdjęć bez wymaganych zgód. Kontakt prowadzi do oficjalnej strony akademii.
+Na start aplikacja zawiera komunikat o uruchomieniu oficjalnej strony. Kolejne aktualności i terminy dopisuj w `content.js`, po ich potwierdzeniu przez akademię. Nie publikuj danych osobowych dzieci ani ich zdjęć bez wymaganych zgód. Kontakt prowadzi do oficjalnej strony akademii.
 
 ## Publikacja bezpłatnie przez GitHub Pages
 
@@ -47,4 +47,5 @@ events: [
 PWA działa w przeglądarce na Androidzie i iOS. Instalacja na Androidzie jest dostępna z menu Chrome; na iPhonie użyj Safari → **Udostępnij → Do ekranu początkowego**. Pełna instalacja wymaga publikacji przez HTTPS, które GitHub Pages zapewnia automatycznie.
 
 Herb klubu jest używany w nagłówku, ekranie startowym i ikonach instalacyjnych PWA.
+
 

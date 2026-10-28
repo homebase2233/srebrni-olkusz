@@ -1,7 +1,9 @@
 /* Edytuj tę zawartość, aby publikować aktualności i wydarzenia.
    Nie dodawaj danych osobowych ani zdjęć dzieci bez wymaganych zgód. */
 window.ACADEMY_CONTENT = {
-  news: [],
+  news: [
+    { day: "12", month: "PAŹDZIERNIK", category: "AKADEMIA", title: "Oficjalna strona akademii już działa", description: "Znajdziesz tu informacje o drużynach, treningach, meczach i wydarzeniach z życia akademii." }
+  ],
   events: [],
   teams: [
     { id: "2016", years: "2016", title: "Rocznik 2016", label: "2016", description: "Drużyna rocznika 2016", accent: "silver" },
