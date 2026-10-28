@@ -1,303 +1,105 @@
----
-layout: null
----
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Akademia Piłkarska Srebrni Olkusz. Chodź na boisko, internet to nie wszystko!">
-  <title>AP Srebrni Olkusz</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f3">
+  <meta name="description" content="Oficjalna aplikacja Akademii Piłkarskiej Srebrni Olkusz — aktualności, drużyny i kalendarz.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" href="crest-192.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="app.css">
+  <title>Srebrni Olkusz — aplikacja akademii</title>
 </head>
 <body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="topbar">
+    <a class="brand" href="#start" aria-label="Srebrni Olkusz — strona główna">
+      <img src="crest.png" alt="" width="42" height="48">
+      <span><strong>SREBRNI</strong><small>OLKUSZ · AKADEMIA</small></span>
+    </a>
+    <button class="install-button" id="installButton" hidden>＋ Zainstaluj</button>
+  </header>
 
-<header class="header">
-  <a href="#start" class="logo">
-  <img src="herb.png" alt="Herb AP Srebrni Olkusz">
-    <span>AP SREBRNI OLKUSZ</span>
-  </a>
+  <main id="main">
+    <section class="view active" id="view-start" aria-labelledby="hero-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="live-dot"></span> AKADEMIA PIŁKARSKA · OLKUSZ</p>
+          <h1 id="hero-title">Razem<br>gramy <em>lepiej.</em></h1>
+          <p class="hero-text">Miejsce, w którym pasja do piłki spotyka się z dobrą drużyną.</p>
+          <a href="#druzyny" class="button button-red" data-nav="druzyny">Poznaj nasze drużyny <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <img class="hero-crest" src="crest.png" alt="">
+          <span class="hero-year">OD<br><b>2016</b></span>
+        </div>
+        <div class="hero-foot"><span>CHODŹ NA BOISKO.</span><span>INTERNET TO NIE WSZYSTKO. <b>↗</b></span></div>
+      </div>
 
-  <button class="menu-toggle" aria-label="Otwórz menu" aria-expanded="false">☰</button>
+      <section class="section-block news-block" aria-labelledby="news-title">
+        <div class="section-heading"><div><p class="eyebrow">Z ŻYCIA AKADEMII</p><h2 id="news-title">Aktualności</h2></div><a class="text-link" href="#aktualnosci" data-nav="aktualnosci">Wszystkie <span>↗</span></a></div>
+        <div id="newsList" class="news-list"></div>
+      </section>
 
-  <nav class="nav" id="nav">
-    <a href="#start">Start</a>
-    <a href="#akademia">O akademii</a>
-    <a href="#druzyny">Drużyny</a>
-    <a href="#treningi">Treningi</a>
-    <a href="#aktualnosci">Aktualności</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#kontakt">Kontakt</a>
+      <section class="join-strip">
+        <div><p class="eyebrow">PIERWSZY TRENING?</p><h2>Każda wielka droga<br>zaczyna się od podania.</h2></div>
+        <a class="button button-light" href="#kontakt" data-nav="kontakt">Dołącz do nas <span>↗</span></a>
+      </section>
+    </section>
+
+    <section class="view" id="view-druzyny" aria-labelledby="teams-title" hidden>
+      <div class="page-intro"><p class="eyebrow">JEDNA AKADEMIA. WIELE DRUŻYN.</p><h1 id="teams-title">Nasze<br><em>drużyny.</em></h1><p>Wybierz rocznik, aby zobaczyć informacje o grupie.</p></div>
+      <div class="team-grid" id="teamList"></div>
+      <div class="notice"><span class="notice-icon">i</span><p>Szczegółowe informacje o treningach i naborze uzyskasz bezpośrednio w akademii.</p><a href="#kontakt" data-nav="kontakt">Kontakt ↗</a></div>
+    </section>
+
+    <section class="view" id="view-kalendarz" aria-labelledby="calendar-title" hidden>
+      <div class="page-intro"><p class="eyebrow">ZAPLANUJ PIŁKARSKI TYDZIEŃ</p><h1 id="calendar-title">Kalendarz<br><em>akademii.</em></h1><p>Treningi i mecze opublikowane przez akademię.</p></div>
+      <div class="calendar-card">
+        <div class="calendar-top"><div><span class="eyebrow">HARMONOGRAM</span><h2 id="monthLabel"></h2></div><div class="month-actions"><button id="prevMonth" aria-label="Poprzedni miesiąc">←</button><button id="nextMonth" aria-label="Następny miesiąc">→</button></div></div>
+        <div class="calendar-weekdays" aria-hidden="true"><span>PON</span><span>WT</span><span>ŚR</span><span>CZW</span><span>PT</span><span>SOB</span><span>ND</span></div>
+        <div class="calendar-days" id="calendarDays"></div>
+        <div class="calendar-legend"><span><i class="legend-training"></i> Trening</span><span><i class="legend-match"></i> Mecz / turniej</span></div>
+      </div>
+      <div class="event-panel"><div class="section-heading"><div><p class="eyebrow" id="selectedDateLabel">WYBRANY DZIEŃ</p><h2>Wydarzenia</h2></div><select id="teamFilter" aria-label="Filtruj wydarzenia według drużyny"><option value="all">Wszystkie drużyny</option></select></div><div id="eventList"></div></div>
+      <p class="data-note">Terminy należy potwierdzić u trenera. Kalendarz pokaże wydarzenia po uzupełnieniu harmonogramu.</p>
+    </section>
+
+    <section class="view" id="view-akademia" aria-labelledby="about-title" hidden>
+      <div class="page-intro"><p class="eyebrow">POZNAJ NAS BLIŻEJ</p><h1 id="about-title">Piłka to<br><em>coś więcej.</em></h1><p>Akademia Piłkarska Srebrni Olkusz</p></div>
+      <div class="about-card"><span class="about-number">01</span><div><h2>Rozwój na boisku i poza nim</h2><p>Akademia Piłkarska Srebrni Olkusz to miejsce, w którym dzieci rozwijają umiejętności piłkarskie, uczą się współpracy i czerpią radość z aktywności fizycznej.</p></div></div>
+      <div class="about-card"><span class="about-number">02</span><div><h2>Drużyna, która wspiera</h2><p>Stawiamy na regularny trening, dobrą atmosferę i wszechstronny rozwój młodych zawodników.</p></div></div>
+      <div class="player-card"><div><p class="eyebrow">WKRÓTCE</p><h2>Moja Karta<br><em>Piłkarza</em></h2><p>Twoje piłkarskie postępy w jednym miejscu.</p><span class="coming-soon">W PRZYGOTOWANIU</span></div><div class="player-card-mark" aria-hidden="true">SO</div></div>
+      <p class="privacy-note">Funkcja „Moja Karta Piłkarza” jest na razie zapowiedzią. Nie wpisuj tu danych dzieci — karta będzie dostępna dopiero po przygotowaniu bezpiecznego systemu i uzyskaniu wymaganych zgód.</p>
+    </section>
+
+    <section class="view" id="view-aktualnosci" aria-labelledby="allnews-title" hidden>
+      <div class="page-intro"><p class="eyebrow">CO SŁYCHAĆ U SREBRNYCH?</p><h1 id="allnews-title">Aktualności<br><em>akademii.</em></h1><p>Komunikaty i wydarzenia z życia drużyn.</p></div>
+      <div id="allNewsList" class="news-list"></div>
+    </section>
+
+    <section class="view" id="view-kontakt" aria-labelledby="contact-title" hidden>
+      <div class="page-intro"><p class="eyebrow">DOŁĄCZ DO NAS</p><h1 id="contact-title">Do zobaczenia<br><em>na boisku.</em></h1><p>Zapytaj o trening próbny, nabór lub właściwą grupę.</p></div>
+      <div class="contact-card"><span class="contact-symbol">↗</span><p class="eyebrow">AKADEMIA PIŁKARSKA</p><h2>Srebrni Olkusz</h2><p>Aktualne dane kontaktowe i informacje organizacyjne znajdziesz na stronie akademii.</p><a class="button button-red" href="https://srebrniolkusz.pl/" target="_blank" rel="noreferrer">Odwiedź stronę akademii <span>↗</span></a></div>
+      <div class="contact-card contact-card-muted"><p class="eyebrow">WAŻNA INFORMACJA</p><p>Dokładne terminy treningów ustalane są z trenerami. Przed przyjazdem na zajęcia skontaktuj się z akademią.</p></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Główna nawigacja">
+    <a href="#start" data-nav="start" class="nav-item active"><span class="nav-icon">⌂</span><span>Start</span></a>
+    <a href="#druzyny" data-nav="druzyny" class="nav-item"><span class="nav-icon">◉</span><span>Drużyny</span></a>
+    <a href="#kalendarz" data-nav="kalendarz" class="nav-item"><span class="nav-icon">▦</span><span>Kalendarz</span></a>
+    <a href="#akademia" data-nav="akademia" class="nav-item"><span class="nav-icon">✦</span><span>Akademia</span></a>
+    <a href="#kontakt" data-nav="kontakt" class="nav-item"><span class="nav-icon">↗</span><span>Kontakt</span></a>
   </nav>
-</header>
-
-<main>
-  <section class="hero" id="start">
-    <div class="hero-content">
-      <img class="hero-logo" src="herb.png" alt="AP Srebrni Olkusz">
-      <h1>AKADEMIA PIŁKARSKA<br>SREBRNI OLKUSZ</h1>
-      <p class="slogan">CHODŹ NA BOISKO,<br>INTERNET TO NIE WSZYSTKO!</p>
-      <div class="buttons">
-        <a href="#kontakt" class="btn">DOŁĄCZ DO NAS</a>
-        <a href="#aktualnosci" class="btn btn-outline">AKTUALNOŚCI</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="akademia">
-    <div class="container">
-      <p class="eyebrow">POZNAJ NAS</p>
-      <h2>O NASZEJ AKADEMII</h2>
-      <div class="red-line"></div>
-      <p class="intro">
-        Akademia Piłkarska Srebrni Olkusz to miejsce,
-        w którym dzieci rozwijają swoje umiejętności
-        piłkarskie, uczą się współpracy i czerpią
-        radość z aktywności fizycznej.
-      </p>
-      <p class="intro">
-        Stawiamy na regularny trening, dobrą atmosferę
-        i wszechstronny rozwój młodych zawodników.
-      </p>
-    </div>
-  </section>
-
-  
-<section class="section section-dark" id="druzyny">
-  <div class="container">
-    <p class="eyebrow">MŁODZI ZAWODNICY</p>
-    <h2>NASZE DRUŻYNY</h2>
-    <div class="red-line"></div>
-
-    <div class="cards">
-      {% assign druzyny = site.druzyny | sort: "rocznik" | reverse %}
-      {% for druzyna in druzyny %}
-      <article class="card team-card">
-
-        {% if druzyna.image %}
-        <img
-          src="{{ druzyna.image }}"
-          alt="{{ druzyna.title | escape }}"
-          class="team-image"
-          loading="lazy">
-        {% endif %}
-
-        <div class="team-content">
-          <h3>{{ druzyna.title | escape }}</h3>
-
-          {% if druzyna.trener %}
-          <p><strong>Trener:</strong> {{ druzyna.trener | escape }}</p>
-          {% endif %}
-
-          {% if druzyna.treningi %}
-          <p><strong>Treningi:</strong> {{ druzyna.treningi | escape | newline_to_br }}</p>
-          {% endif %}
-
-          <a href="{{ druzyna.url | relative_url }}" class="btn">
-            ZOBACZ DRUŻYNĘ
-          </a>
-        </div>
-      </article>
-      {% else %}
-      <p>Informacje o drużynach pojawią się wkrótce.</p>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section" id="trenerzy">
-  <div class="container">
-    <p class="eyebrow">POZNAJ NASZ ZESPÓŁ</p>
-    <h2>KADRA TRENERSKA</h2>
-    <div class="red-line"></div>
-
-    <div class="coach-grid">
-      {% assign trenerzy = site.trenerzy | sort: "title" %}
-      {% for trener in trenerzy %}
-      <article class="coach-card">
-
-        {% if trener.image %}
-        <img
-          src="{{ trener.image }}"
-          alt="{{ trener.title | escape }}"
-          class="coach-photo"
-          loading="lazy">
-        {% else %}
-        <div class="coach-placeholder">
-          AP SREBRNI OLKUSZ
-        </div>
-        {% endif %}
-
-        <div class="coach-content">
-          <h3>{{ trener.title | escape }}</h3>
-
-          {% if trener.funkcja %}
-          <p class="coach-role">
-            {{ trener.funkcja | escape }}
-          </p>
-          {% endif %}
-
-          {% if trener.licencja %}
-          <p><strong>Licencja:</strong>
-            {{ trener.licencja | escape }}
-          </p>
-          {% endif %}
-
-          {% if trener.roczniki %}
-          <p><strong>Roczniki:</strong>
-            {{ trener.roczniki | escape }}
-          </p>
-          {% endif %}
-
-          <a href="{{ trener.url | relative_url }}" class="btn">
-            POZNAJ TRENERA
-          </a>
-        </div>
-      </article>
-      {% else %}
-      <p>Informacje o kadrze trenerskiej pojawią się wkrótce.</p>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-
-  <section class="section" id="treningi">
-    <div class="container">
-      <p class="eyebrow">SPOTKAJMY SIĘ NA BOISKU</p>
-      <h2>HARMONOGRAM TRENINGÓW</h2>
-      <div class="red-line"></div>
-      <p class="intro">
-        Szczegółowy harmonogram poszczególnych grup
-        treningowych zostanie tutaj opublikowany.
-      </p>
-      <a href="#kontakt" class="btn">ZAPYTAJ O TRENING</a>
-    </div>
-  </section>
-
-  
-<section class="section section-dark" id="aktualnosci">
-  <div class="container">
-    <p class="eyebrow">CO U NAS SŁYCHAĆ?</p>
-    <h2>AKTUALNOŚCI KLUBOWE</h2>
-    <div class="red-line"></div>
-
-    <div class="cards">
-      {% assign wpisy = site.aktualnosci | sort: "date" | reverse %}
-      {% for wpis in wpisy limit:6 %}
-      <article class="card news-card">
-
-        {% if wpis.image %}
-        <img
-          src="{{ wpis.image }}"
-          alt="{{ wpis.title | escape }}"
-          class="news-image"
-          loading="lazy">
-        {% endif %}
-
-        <div class="news-content">
-          <p class="news-date">
-            {{ wpis.date | date: "%d.%m.%Y" }}
-          </p>
-
-          <h3>{{ wpis.title | escape }}</h3>
-
-          <p>{{ wpis.description | escape }}</p>
-
-          <a href="{{ wpis.url | relative_url }}" class="news-link">
-            CZYTAJ WIĘCEJ
-          </a>
-        </div>
-
-      </article>
-      {% else %}
-      <p>Wkrótce pojawią się aktualności akademii.</p>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-    <div class="container">
-      <p class="eyebrow">CO U NAS SŁYCHAĆ?</p>
-      <h2>AKTUALNOŚCI</h2>
-      <div class="red-line"></div>
-      <div class="cards">
-        <article class="card">
-          <h3>WEEKENDOWE GRANIE</h3>
-          <p>Relacje z meczów i turniejów naszych drużyn.</p>
-        </article>
-        <article class="card">
-          <h3>TURNIEJ SREBRNEGO MIASTA</h3>
-          <p>Wydarzenia piłkarskie organizowane w Olkuszu.</p>
-        </article>
-        <article class="card">
-          <h3>ŻYCIE AKADEMII</h3>
-          <p>Treningi, wydarzenia i osiągnięcia zawodników.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  
-<section class="section" id="galeria">
-  <div class="container">
-    <p class="eyebrow">NASZE WSPOMNIENIA</p>
-    <h2>GALERIA ZDJĘĆ</h2>
-    <div class="red-line"></div>
-
-    <div class="cards">
-      {% assign albumy = site.galerie | sort: "date" | reverse %}
-      {% for album in albumy %}
-      <article class="card album-card">
-
-        {% if album.cover %}
-        <img
-          class="album-cover"
-          src="{{ album.cover }}"
-          alt="{{ album.title | escape }}"
-          loading="lazy">
-        {% endif %}
-
-        <div class="album-content">
-          <p class="album-date">
-            {{ album.date | date: "%d.%m.%Y" }}
-          </p>
-
-          <h3>{{ album.title | escape }}</h3>
-
-          <p>{{ album.description | escape }}</p>
-
-          <a class="btn" href="{{ album.url | relative_url }}">
-            ZOBACZ GALERIĘ
-          </a>
-        </div>
-      </article>
-      {% else %}
-      <p>Wkrótce pojawią się galerie zdjęć.</p>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-
-  <section class="section contact" id="kontakt">
-    <div class="container">
-      <p class="eyebrow">ZAPRASZAMY NA TRENING</p>
-      <h2>DOŁĄCZ DO SREBRNYCH!</h2>
-      <div class="red-line"></div>
-      <p>Chcesz rozpocząć piłkarską przygodę?</p>
-      <p>Skontaktuj się z akademią i zapytaj o nabór.</p>
-      <p>Dane kontaktowe i formularz dodamy w kolejnym etapie.</p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <img src="herb.png" alt="Srebrni Olkusz">
-  <p>AKADEMIA PIŁKARSKA SREBRNI OLKUSZ</p>
-  <small>© <span id="year"></span> AP Srebrni Olkusz</small>
-</footer>
-
-<script src="script.js"></script>
+  <footer class="footer"><span>© <span id="year"></span> AP Srebrni Olkusz</span><span>RAZEM GRAMY LEPIEJ</span></footer>
+  <script src="content.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
+
+
+
+
