@@ -5,7 +5,7 @@ Lekka, responsywna aplikacja internetowa, którą można dodać do ekranu głów
 ## Co zawiera MVP
 
 - ekran startowy z aktualnościami;
-- drużyny 2016/17, 2018, 2019 i 2020/21/22;
+- drużyny 2016, 2017, 2018, 2019 i 2020/21/22;
 - miesięczny kalendarz z filtrem drużyn i listą wydarzeń;
 - informacje o akademii, kontakt oraz zapowiedź „Mojej Karty Piłkarza”;
 - instalację PWA i podstawowe działanie offline po pierwszej wizycie.
@@ -40,10 +40,11 @@ events: [
 ]
 ```
 
-`type` wydarzenia to `training` albo `match`. `teamId` powinno mieć wartość `2016-17`, `2018`, `2019` lub `2020-22`. Datę podaj jako `RRRR-MM-DD`. Zapisz zmianę i wgraj zaktualizowany `content.js` do repozytorium.
+`type` wydarzenia to `training` albo `match`. `teamId` powinno mieć wartość `2016`, `2017`, `2018`, `2019` lub `2020-22`. Datę podaj jako `RRRR-MM-DD`. Zapisz zmianę i wgraj zaktualizowany `content.js` do repozytorium.
 
 ## Edycja iPhone / Android
 
 PWA działa w przeglądarce na Androidzie i iOS. Instalacja na Androidzie jest dostępna z menu Chrome; na iPhonie użyj Safari → **Udostępnij → Do ekranu początkowego**. Pełna instalacja wymaga publikacji przez HTTPS, które GitHub Pages zapewnia automatycznie.
 
 Herb klubu jest używany w nagłówku, ekranie startowym i ikonach instalacyjnych PWA.
+

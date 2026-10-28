@@ -56,3 +56,27 @@ body{background:#f5f5f3;color:#17181b}
 @media(min-width:760px){.bottom-nav{background:#fff;border-color:#dededb}}
 
 .hero-art{background:none}.hero-crest{position:absolute;width:min(330px,86%);height:auto;max-height:350px;object-fit:contain;filter:drop-shadow(0 16px 24px #11121424)}@media(max-width:650px){.hero-art{width:250px;height:250px;right:-24px;top:185px;opacity:1}.hero-crest{width:220px;max-height:220px}}
+
+/* Dopieszczony ekran startowy */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:34px;min-height:410px;padding:48px 48px 68px;background:linear-gradient(135deg,#fff 0%,#f0f1ef 100%);border:1px solid #e1e2df;border-radius:4px}
+.hero-copy{max-width:520px}
+.hero h1{font-size:clamp(58px,7vw,82px);line-height:.92;letter-spacing:-.025em;margin:18px 0}
+.hero-text{max-width:390px;font-size:15px;line-height:1.75}
+.hero-actions{display:flex;align-items:center;gap:21px;flex-wrap:wrap;margin-top:23px}
+.hero-actions .button{margin-top:0}
+.hero-secondary{font-size:12px;font-weight:700;color:#33353a}
+.hero-secondary span{color:#e3313d;font-size:18px;margin-left:5px}
+.hero-art{position:relative;top:auto;right:auto;width:100%;height:280px;overflow:hidden;border-radius:4px;background:#d8dcd7;opacity:1}
+.hero-photo{width:100%;height:100%;display:block;object-fit:cover;object-position:center 54%}
+.photo-badge{position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:10px;padding:11px 14px;background:#fff;color:#55575b;font-size:8px;letter-spacing:.12em;line-height:1.55;box-shadow:0 5px 20px #11121418}
+.photo-badge .live-dot{flex:none;margin:0}
+.photo-badge strong{color:#17181b;font-size:10px;letter-spacing:.1em}
+.hero-foot{padding:0 26px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);margin:18px 0 0;border:1px solid #e1e2df;background:#fff}
+.benefit{display:flex;align-items:flex-start;gap:15px;padding:20px 22px}
+.benefit+.benefit{border-left:1px solid #e1e2df}
+.benefit>span{font:700 15px var(--heading);color:#e3313d}
+.benefit h2{font:700 17px var(--heading);text-transform:uppercase;margin:0 0 4px;color:#17181b}
+.benefit p{font-size:10px;line-height:1.5;margin:0;color:#696b70}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:24px;padding:34px 25px 62px}.hero-art{height:230px}.hero h1{font-size:64px}.hero-foot{padding:0 14px}.benefits{grid-template-columns:1fr}.benefit{padding:15px 18px}.benefit+.benefit{border-left:0;border-top:1px solid #e1e2df}}
+@media(max-width:370px){.hero h1{font-size:56px}.hero-actions{gap:14px}.hero-secondary{font-size:11px}}
