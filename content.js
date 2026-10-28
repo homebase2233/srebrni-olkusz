@@ -2,7 +2,23 @@
    Nie dodawaj danych osobowych ani zdjęć dzieci bez wymaganych zgód. */
 window.ACADEMY_CONTENT = {
   news: [
-    { day: "12", month: "PAŹDZIERNIK", category: "AKADEMIA", title: "Oficjalna strona akademii już działa", description: "Znajdziesz tu informacje o drużynach, treningach, meczach i wydarzeniach z życia akademii." }
+    {
+      category: "TURNIEJ PODOKRĘGU",
+      title: "Srebrni Olkusz najliczniejszą akademią w powiecie!",
+      description: "Roczniki 2018, 2019 i 2020 reprezentowały akademię podczas kolejnego turnieju.",
+      body: [
+        "🏆 Za nami kolejny Turniej Podokręgu Piłki Nożnej, w którym naszą akademię reprezentowały roczniki 2018, 2019 i 2020!",
+        "🔥 Tym razem mogliśmy pochwalić się najliczniejszą reprezentacją spośród wszystkich akademii w powiecie! To pokazuje, jak wielu młodych zawodników chce rozwijać swoją piłkarską pasję w barwach Srebrnych Olkusz! ❤️🖤",
+        "⚽ Na boiskach nie brakowało pięknych akcji, bramek, emocji i ogromnej radości z gry. Nasi młodzi piłkarze po raz kolejny pokazali zaangażowanie, ambicję i ducha drużyny! 👏",
+        "👏 Wielkie brawa dla wszystkich zawodników za świetną postawę, a rodzicom dziękujemy za wsparcie podczas całego turnieju!",
+        "❤️🖤 Rośniemy w siłę! Srebrni Olkusz – tutaj zaczyna się piłkarska przygoda! ⚽🔥"
+      ]
+    },
+    {
+      day: "12", month: "PAŹDZIERNIK", category: "AKADEMIA",
+      title: "Oficjalna strona akademii już działa",
+      description: "Znajdziesz tu informacje o drużynach, treningach, meczach i wydarzeniach z życia akademii."
+    }
   ],
   events: [],
   teams: [

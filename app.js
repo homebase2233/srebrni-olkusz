@@ -22,7 +22,15 @@
 
   function newsMarkup(items) {
     if (!items.length) return '<div class="empty-state"><span class="empty-icon">✳</span><div><h3>Wkrótce coś się wydarzy</h3><p>Aktualności pojawią się tutaj po opublikowaniu przez akademię.</p></div></div>';
-    return items.map(item => `<article class="news-item"><div class="news-date"><span>${safe(item.day || "—")}</span><small>${safe(item.month || "AKTUALNOŚĆ")}</small></div><div class="news-copy"><span class="tag">${safe(item.category || "AKADEMIA")}</span><h3>${safe(item.title)}</h3><p>${safe(item.description)}</p></div><span class="news-arrow">↗</span></article>`).join("");
+    return items.map(item => {
+      const date = item.day || item.month
+        ? `<div class="news-date"><span>${safe(item.day || "")}</span><small>${safe(item.month || "")}</small></div>`
+        : '<div class="news-date news-no-date"><small>AKTUALNOŚĆ</small></div>';
+      const story = Array.isArray(item.body) && item.body.length
+        ? `<details class="news-details"><summary>Czytaj relację</summary><div>${item.body.map(paragraph => `<p>${safe(paragraph)}</p>`).join("")}</div></details>`
+        : "";
+      return `<article class="news-item">${date}<div class="news-copy"><span class="tag">${safe(item.category || "AKADEMIA")}</span><h3>${safe(item.title)}</h3><p>${safe(item.description)}</p>${story}</div><span class="news-arrow" aria-hidden="true">↗</span></article>`;
+    }).join("");
   }
   document.getElementById("newsList").innerHTML = newsMarkup(data.news.slice(0, 3));
   document.getElementById("allNewsList").innerHTML = newsMarkup(data.news);
@@ -82,3 +90,4 @@
     window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
   }
 })();
+
